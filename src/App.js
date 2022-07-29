@@ -1,25 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import { Input,Button } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {UseFetch} from './UseFetch'
+import React, {useState} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+const App = () =>{
+
+  const[url,setUr]=useState('https://pokeapi.co/api/v2/pokemon')
+  const estado = UseFetch(url);
+  const {cargando, data} = estado;
+
+  cargando? console.log('cargando'):console.log(data.results);
+
+  return(
+    <div>
+      <h1>Buscar Pokemon</h1>
+      <div className='col-md-3'>
+        <Input type='text' placeholder='ingresar nombre....'/>
+        <Button type='button' className='btn btn-'>buscar</Button>
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;
