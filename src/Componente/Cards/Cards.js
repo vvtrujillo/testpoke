@@ -1,11 +1,12 @@
 import React from "react";
 import { UseFetch } from "../../UseFetch";
+import { CardPokemon } from "./CardPokemon";
 
-export const Cards = ({url}) => {
+export const Cards = ({results}) => {
     const estado = UseFetch(url);
     const {cargando,data}=estado;
     return(
-        <div>
+        <div className="container">
 
         </div>
     )
