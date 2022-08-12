@@ -23,7 +23,7 @@ const App = () =>{
         <Input type='text' placeholder='ingresar nombre....'/>
         <Button type='button' className='' color='primary'>buscar</Button>
         <div>
-            <h1>Esta es la página de Pokemon</h1>
+            <h1>Pokemón</h1>
             {
                 cargando
                 ?
@@ -31,7 +31,7 @@ const App = () =>{
                 :
                 <Cards results={data.results}></Cards>
             }
-        </div>       
+        </div>
       </div>
     </div>
   )
