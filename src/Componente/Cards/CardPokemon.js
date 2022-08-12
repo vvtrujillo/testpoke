@@ -2,9 +2,8 @@ import React from "react";
 import {UseFetch} from '../../UseFetch'
 
 export const CardPokemon = ({url}) => {
-    const estado=UseFetch(url);
-    const [cargando,data]=estado;
-
+    const estado=UseFetch(url);    
+    const {cargando,data}=estado;
 
     return(
         <div>
@@ -14,14 +13,14 @@ export const CardPokemon = ({url}) => {
                 :
                 <div className="card">
                     <div className="card-header">
-                        <h5 className="card-title"></h5>
+                        <h5 className="card-title">{data.id}</h5>
                     </div>
                     <div className="card-body">
-                        <img src="" alt='Pokemon'/>
+                        <img src={data.sprites.front_default} alt='Pokemon'/>
                     </div>
                     <div className="card-footer">
-                        <p className="card-text text-capitalize"></p>
-                    </div>
+                        <p className="card-text text-capitalize">{data.forms[0].name}</p>
+                    </div>  
                 </div>
             }
         </div>
